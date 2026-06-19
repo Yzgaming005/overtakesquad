@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OVER TAKE SQUAD — Lead The Pace, Break The Limit</title>
+<meta name="description" content="OVER TAKE SQUAD — Squad Roblox yang dikenal karena skill, solidaritas, sportivitas, dan jiwa pantang menyerah untuk melampaui diri." />
+<link rel="icon" type="image/jpeg" href="logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #ff6b1a;
+    --orange-bright: #ff8c42;
+    --orange-dark: #cc4f0e;
+    --navy: #0e1a3a;
+    --navy-deep: #050b1f;
+    --black: #070707;
+    --gray: #1a1a1a;
+    --gray-light: #2a2a2a;
+    --white: #ffffff;
+    --text: #e8e8e8;
+    --text-dim: #b3b3b3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--black);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* === NAV === */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(7,7,7,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,107,26,0.15);
+    padding: 14px 0;
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Russo One', sans-serif;
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--orange); }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .nav-links a:hover { color: var(--orange); }
+
+  .nav-cta {
+    background: var(--orange);
+    color: var(--black);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+  }
+
+  .nav-cta:hover {
+    background: var(--orange-bright);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(255,107,26,0.4);
+  }
+
+  /* === HERO === */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 120px 24px 60px;
+    background:
+      radial-gradient(ellipse at top, rgba(255,107,26,0.15), transparent 60%),
+      radial-gradient(ellipse at bottom, rgba(14,26,58,0.6), transparent 60%),
+      var(--black);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,107,26,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,107,26,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border: 1px solid var(--orange);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 28px;
+    background: rgba(255,107,26,0.06);
+  }
+
+  .hero-logo {
+    width: clamp(240px, 40vw, 420px);
+    height: auto;
+    margin: 0 auto 36px;
+    filter: drop-shadow(0 20px 40px rgba(255,107,26,0.25));
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .hero h1 {
+    font-family: 'Russo One', sans-serif;
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.1;
+    margin-bottom: 18px;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .hero h1 span { color: var(--orange); }
+
+  .hero-slogan {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(14px, 2vw, 20px);
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .hero-tagline {
+    font-size: clamp(16px, 2.2vw, 19px);
+    color: var(--text-dim);
+    max-width: 680px;
+    margin: 0 auto 40px;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--orange);
+    color: var(--black);
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.25s;
+    box-shadow: 0 8px 24px rgba(255,107,26,0.3);
+  }
+
+  .hero-cta:hover {
+    background: var(--orange-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(255,107,26,0.5);
+  }
+
+  .hero-cta svg { width: 22px; height: 22px; }
+
+  .hero-secondary {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--text-dim);
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  /* === SECTIONS === */
+  section {
+    padding: 100px 24px;
+    position: relative;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-head {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-eyebrow {
+    display: inline-block;
+    color: var(--orange);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: 'Russo One', sans-serif;
+    font-size: clamp(28px, 4vw, 44px);
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .section-title span { color: var(--orange); }
+
+  .section-sub {
+    color: var(--text-dim);
+    font-size: 16px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* === VISI MISI === */
+  #visi-misi {
+    background:
+      linear-gradient(180deg, var(--black), var(--navy-deep) 50%, var(--black));
+  }
+
+  .vm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+  }
+
+  .vm-card {
+    background: linear-gradient(145deg, rgba(255,107,26,0.04), rgba(14,26,58,0.4));
+    border: 1px solid rgba(255,107,26,0.15);
+    border-radius: 12px;
+    padding: 36px 32px;
+    transition: all 0.3s;
+  }
+
+  .vm-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--orange);
+    box-shadow: 0 16px 40px rgba(255,107,26,0.15);
+  }
+
+  .vm-card h3 {
+    font-family: 'Russo One', sans-serif;
+    font-size: 22px;
+    color: var(--orange);
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .vm-card p, .vm-card li {
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .vm-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .vm-card ul li {
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 12px;
+  }
+
+  .vm-card ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: bold;
+  }
+
+  /* === NILAI INTI (OVER) === */
+  #nilai {
+    background:
+      radial-gradient(ellipse at center, rgba(255,107,26,0.06), transparent 70%),
+      var(--black);
+  }
+
+  .over-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .over-card {
+    background: var(--gray);
+    border-radius: 12px;
+    padding: 36px 24px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .over-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,107,26,0.12), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .over-card:hover { transform: translateY(-6px); border-color: var(--orange); }
+  .over-card:hover::before { opacity: 1; }
+
+  .over-letter {
+    font-family: 'Russo One', sans-serif;
+    font-size: 72px;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 30px rgba(255,107,26,0.4);
+  }
+
+  .over-word {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .over-desc {
+    font-size: 14px;
+    color: var(--text-dim);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* === WARNA === */
+  #warna {
+    background: linear-gradient(180deg, var(--black), var(--navy-deep));
+  }
+
+  .warna-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+  }
+
+  .warna-card {
+    background: var(--gray);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s;
+  }
+
+  .warna-card:hover { transform: translateY(-4px); }
+
+  .warna-swatch {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Russo One', sans-serif;
+    font-size: 28px;
+    color: var(--black);
+    letter-spacing: 3px;
+  }
+
+  .warna-swatch.hitam { background: #000; color: var(--white); }
+  .warna-swatch.putih { background: var(--white); color: var(--black); }
+  .warna-swatch.orange { background: var(--orange); color: var(--black); }
+
+  .warna-body { padding: 24px; }
+
+  .warna-name {
+    font-family: 'Russo One', sans-serif;
+    font-size: 18px;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .warna-desc {
+    color: var(--text-dim);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* === PENGURUS === */
+  #pengurus {
+    background: var(--black);
+  }
+
+  .pengurus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .pengurus-card {
+    background: linear-gradient(160deg, var(--gray), var(--navy-deep));
+    border: 1px solid rgba(255,107,26,0.1);
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .pengurus-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(255,107,26,0.15);
+  }
+
+  .pengurus-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Russo One', sans-serif;
+    font-size: 28px;
+    color: var(--black);
+    border: 3px solid var(--navy);
+    box-shadow: 0 0 0 3px var(--orange);
+  }
+
+  .pengurus-name {
+    font-family: 'Russo One', sans-serif;
+    font-size: 18px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .pengurus-role {
+    font-size: 13px;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
+
+  .pengurus-tier {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 4px 10px;
+    background: rgba(255,107,26,0.1);
+    color: var(--orange);
+    border-radius: 4px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255,107,26,0.3);
+  }
+
+  /* === GAMES === */
+  #games {
+    background:
+      radial-gradient(ellipse at top, rgba(255,107,26,0.08), transparent 60%),
+      var(--navy-deep);
+  }
+
+  .games-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .game-chip {
+    padding: 14px 28px;
+    background: var(--gray);
+    border: 1px solid rgba(255,107,26,0.2);
+    border-radius: 100px;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.25s;
+    cursor: default;
+  }
+
+  .game-chip:hover {
+    background: var(--orange);
+    color: var(--black);
+    transform: translateY(-2px);
+    border-color: var(--orange);
+  }
+
+  .game-chip.featured {
+    background: var(--orange);
+    color: var(--black);
+    border-color: var(--orange);
+  }
+
+  /* === RULES === */
+  #rules {
+    background: var(--black);
+  }
+
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .rule-card {
+    background: var(--gray);
+    border-left: 4px solid var(--orange);
+    border-radius: 8px;
+    padding: 32px 28px;
+    transition: all 0.3s;
+  }
+
+  .rule-card:hover { transform: translateX(4px); }
+
+  .rule-card.do { border-left-color: #22c55e; }
+  .rule-card.dont { border-left-color: #ef4444; }
+
+  .rule-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+  }
+
+  .rule-card.do .rule-tag { background: rgba(34,197,94,0.15); color: #22c55e; }
+  .rule-card.dont .rule-tag { background: rgba(239,68,68,0.15); color: #ef4444; }
+
+  .rule-text {
+    font-family: 'Russo One', sans-serif;
+    font-size: 17px;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1.4;
+  }
+
+  /* === KEGIATAN === */
+  #kegiatan {
+    background: linear-gradient(180deg, var(--black), var(--navy-deep));
+  }
+
+  .kegiatan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .kegiatan-card {
+    background: var(--gray);
+    border-radius: 12px;
+    padding: 36px 24px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.3s;
+  }
+
+  .kegiatan-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-4px);
+  }
+
+  .kegiatan-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .kegiatan-name {
+    font-family: 'Russo One', sans-serif;
+    font-size: 16px;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* === CTA === */
+  .cta-section {
+    background:
+      radial-gradient(ellipse at center, rgba(255,107,26,0.2), transparent 70%),
+      linear-gradient(135deg, var(--orange-dark), var(--orange));
+    text-align: center;
+    padding: 100px 24px;
+  }
+
+  .cta-section h2 {
+    font-family: 'Russo One', sans-serif;
+    font-size: clamp(32px, 5vw, 52px);
+    color: var(--black);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+  }
+
+  .cta-section p {
+    color: rgba(0,0,0,0.8);
+    font-size: 18px;
+    margin-bottom: 36px;
+    font-weight: 500;
+  }
+
+  .cta-discord {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--black);
+    color: var(--white);
+    padding: 18px 40px;
+    border-radius: 8px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.25s;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+  }
+
+  .cta-discord:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+    background: #1a1a1a;
+  }
+
+  .cta-discord svg { width: 26px; height: 26px; }
+
+  /* === FOOTER === */
+  footer {
+    background: var(--black);
+    padding: 40px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(255,107,26,0.1);
+  }
+
+  footer p {
+    color: var(--text-dim);
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  footer .slogan {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--orange);
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  /* === MOBILE === */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    section { padding: 70px 20px; }
+    .hero { padding: 100px 20px 60px; }
+    .hero h1 { letter-spacing: 1px; }
+  }
+
+  /* scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: all 0.7s ease-out;
+  }
+
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">OVER<span>TAKE</span></a>
+    <ul class="nav-links">
+      <li><a href="#visi-misi">Visi</a></li>
+      <li><a href="#nilai">Nilai</a></li>
+      <li><a href="#pengurus">Tim</a></li>
+      <li><a href="#games">Games</a></li>
+      <li><a href="#rules">Rules</a></li>
+    </ul>
+    <a href="https://discord.gg/xuhBUBjxfu" target="_blank" rel="noopener" class="nav-cta">Join Discord</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-content">
+    <span class="hero-badge">⚡ Roblox Squad Est. 2024</span>
+    <img src="logo.jpg" alt="OVER TAKE SQUAD Logo" class="hero-logo" />
+    <p class="hero-slogan">Lead The Pace · Break The Limit</p>
+    <h1>Melampaui <span>Batas</span>,<br/>Jadi yang <span>Terdepan</span></h1>
+    <p class="hero-tagline">Squad Roblox yang dikenal karena skill, solidaritas, sportivitas, dan jiwa pantang menyerah untuk selalu melampaui diri.</p>
+    <a href="https://discord.gg/xuhBUBjxfu" target="_blank" rel="noopener" class="hero-cta">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+      Gabung Discord
+    </a>
+    <p class="hero-secondary">discord.gg/xuhBUBjxfu</p>
+  </div>
+</section>
+
+<!-- VISI MISI -->
+<section id="visi-misi">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Visi & Misi</span>
+      <h2 class="section-title">Arah <span>Squad</span></h2>
+      <p class="section-sub">Komitmen kami untuk anggota, komunitas, dan diri kami sendiri.</p>
+    </div>
+
+    <div class="vm-grid">
+      <div class="vm-card reveal">
+        <h3>🎯 Visi</h3>
+        <p>Menjadi squad Roblox yang dikenal karena skill, solidaritas, sportivitas, kemampuan beradaptasi, dan mempunyai jiwa pantang menyerah untuk selalu <strong style="color:var(--orange)">melampaui diri (Over Take)</strong>.</p>
+      </div>
+      <div class="vm-card reveal">
+        <h3>🚀 Misi</h3>
+        <ul>
+          <li>Mempererat hubungan antar anggota dan saling mendukung</li>
+          <li>Menyediakan ruang untuk mengasah kemampuan di berbagai genre game</li>
+          <li>Menjunjung tinggi etika bermain jujur (Fair Play) dan menghargai lawan</li>
+          <li>Menjadi squad yang cepat belajar dan beradaptasi</li>
+          <li>Mengutamakan kenyamanan dan kebahagiaan anggota</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NILAI INTI OVER -->
+<section id="nilai">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Nilai Inti</span>
+      <h2 class="section-title">OVER</h2>
+      <p class="section-sub">Empat huruf yang jadi fondasi cara kita main, bersikap, dan bertumbuh.</p>
+    </div>
+
+    <div class="over-grid">
+      <div class="over-card reveal">
+        <div class="over-letter">O</div>
+        <div class="over-word">Outstanding</div>
+        <p class="over-desc">Selalu memberikan performa terbaik di setiap match dan kesempatan.</p>
+      </div>
+      <div class="over-card reveal">
+        <div class="over-letter">V</div>
+        <div class="over-word">Victory Mindset</div>
+        <p class="over-desc">Bermental juara dalam setiap pertandingan — bukan cuma soal menang, tapi soal pantang menyerah.</p>
+      </div>
+      <div class="over-card reveal">
+        <div class="over-letter">E</div>
+        <div class="over-word">Evolution</div>
+        <p class="over-desc">Terus berkembang dan belajar dari setiap kekalahan, setiap meta, setiap match.</p>
+      </div>
+      <div class="over-card reveal">
+        <div class="over-letter">R</div>
+        <div class="over-word">Respect</div>
+        <p class="over-desc">Menghormati anggota, lawan, dan komunitas. Fair play di atas segalanya.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WARNA SQUAD -->
+<section id="warna">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Identitas</span>
+      <h2 class="section-title">Warna <span>Squad</span></h2>
+      <p class="section-sub">Tiga warna yang mendefinisikan karakter OVER TAKE SQUAD.</p>
+    </div>
+
+    <div class="warna-grid">
+      <div class="warna-card reveal">
+        <div class="warna-swatch hitam">HITAM</div>
+        <div class="warna-body">
+          <h4 class="warna-name">Kekuatan & Ketegasan</h4>
+          <p class="warna-desc">Keberanian menghadapi tantangan, mental pantang menyerah, dan tekad baja yang gak gampang goyah.</p>
+        </div>
+      </div>
+      <div class="warna-card reveal">
+        <div class="warna-swatch putih">PUTIH</div>
+        <div class="warna-body">
+          <h4 class="warna-name">Persatuan</h4>
+          <p class="warna-desc">Menjaga sikap dan membangun squad yang positif tanpa membedakan latar belakang siapapun.</p>
+        </div>
+      </div>
+      <div class="warna-card reveal">
+        <div class="warna-swatch orange">ORANGE</div>
+        <div class="warna-body">
+          <h4 class="warna-name">Energi & Ambisi</h4>
+          <p class="warna-desc">Selalu ingin maju, melampaui diri, dan semangat berkembang jadi yang terbaik.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PENGURUS -->
+<section id="pengurus">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Jajaran Pengurus</span>
+      <h2 class="section-title">Tim <span>Inti</span></h2>
+      <p class="section-sub">Orang-orang yang jaga roda squad tetap berputar.</p>
+    </div>
+
+    <div class="pengurus-grid">
+      <div class="pengurus-card reveal">
+        <div class="pengurus-avatar">C</div>
+        <div class="pengurus-name">Chunn</div>
+        <div class="pengurus-role">Founder / Lead</div>
+        <span class="pengurus-tier">👑 Leader</span>
+      </div>
+      <div class="pengurus-card reveal">
+        <div class="pengurus-avatar">W</div>
+        <div class="pengurus-name">Wirr</div>
+        <div class="pengurus-role">Event Officer</div>
+        <span class="pengurus-tier">🎯 Officer</span>
+      </div>
+      <div class="pengurus-card reveal">
+        <div class="pengurus-avatar">I</div>
+        <div class="pengurus-name">SiapaSaya (Sitampan)</div>
+        <div class="pengurus-role">Dev Officer</div>
+        <span class="pengurus-tier">💻 Officer</span>
+      </div>
+      <div class="pengurus-card reveal">
+        <div class="pengurus-avatar">A</div>
+        <div class="pengurus-name">Ichiioo</div>
+        <div class="pengurus-role">Admin Officer</div>
+        <span class="pengurus-tier">🛡️ Officer</span>
+      </div>
+    </div>
+
+    <div style="margin-top: 50px;">
+      <h3 style="text-align:center; font-family:'Russo One'; color:var(--orange); text-transform:uppercase; letter-spacing:3px; margin-bottom:28px; font-size:18px;">⚜ Elite Members</h3>
+      <div class="pengurus-grid">
+        <div class="pengurus-card reveal"><div class="pengurus-avatar">E</div><div class="pengurus-name">Eciiw</div><span class="pengurus-tier">⚜ Elite</span></div>
+        <div class="pengurus-card reveal"><div class="pengurus-avatar">N</div><div class="pengurus-name">Noa</div><span class="pengurus-tier">⚜ Elite</span></div>
+        <div class="pengurus-card reveal"><div class="pengurus-avatar">C</div><div class="pengurus-name">Cio</div><span class="pengurus-tier">⚜ Elite</span></div>
+        <div class="pengurus-card reveal"><div class="pengurus-avatar">V</div><div class="pengurus-name">Vyllonn</div><span class="pengurus-tier">⚜ Elite</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GAMES -->
+<section id="games">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Games</span>
+      <h2 class="section-title">All <span>Genre</span></h2>
+      <p class="section-sub">Main semua genre Roblox — tapi ini yang paling sering kita gas.</p>
+    </div>
+
+    <div class="games-wrap">
+      <span class="game-chip featured">🏔 Muncak</span>
+      <span class="game-chip featured">👻 Horor</span>
+      <span class="game-chip featured">⚔ Vehicle Destroyer (VD)</span>
+      <span class="game-chip featured">🎉 Party</span>
+      <span class="game-chip featured">🎲 RNG</span>
+      <span class="game-chip featured">🏗 Tycoon</span>
+      <span class="game-chip">+ Semua Genre Lainnya</span>
+    </div>
+  </div>
+</section>
+
+<!-- RULES -->
+<section id="rules">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Rules</span>
+      <h2 class="section-title">Cuma <span>2</span></h2>
+      <p class="section-sub">Gak ribet. Yang penting fun, aman, dan nyaman buat semua.</p>
+    </div>
+
+    <div class="rules-grid">
+      <div class="rule-card dont reveal">
+        <span class="rule-tag">⛔ Don't</span>
+        <p class="rule-text">No Drama, No Konflik, No SARA, No Toxic</p>
+      </div>
+      <div class="rule-card do reveal">
+        <span class="rule-tag">✓ Do</span>
+        <p class="rule-text">Just Have Fun For Mabar</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEGIATAN -->
+<section id="kegiatan">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Kegiatan</span>
+      <h2 class="section-title">Kita <span>Ngapain</span> Aja?</h2>
+      <p class="section-sub">Selain push rank, kita juga hangout bareng.</p>
+    </div>
+
+    <div class="kegiatan-grid">
+      <div class="kegiatan-card reveal">
+        <span class="kegiatan-icon">✉️</span>
+        <div class="kegiatan-name">Invitation</div>
+      </div>
+      <div class="kegiatan-card reveal">
+        <span class="kegiatan-icon">🎮</span>
+        <div class="kegiatan-name">Main Bareng</div>
+      </div>
+      <div class="kegiatan-card reveal">
+        <span class="kegiatan-icon">🎙</span>
+        <div class="kegiatan-name">Podcast</div>
+      </div>
+      <div class="kegiatan-card reveal">
+        <span class="kegiatan-icon">📺</span>
+        <div class="kegiatan-name">Nonton Bareng</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA DISCORD -->
+<section class="cta-section">
+  <h2>Gabung Squad Sekarang</h2>
+  <p>Lead the pace. Break the limit. Bareng OVER TAKE SQUAD.</p>
+  <a href="https://discord.gg/xuhBUBjxfu" target="_blank" rel="noopener" class="cta-discord">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+    discord.gg/xuhBUBjxfu
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2024 OVER TAKE SQUAD · All Rights Reserved</p>
+  <p class="slogan">Lead The Pace · Break The Limit</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
