@@ -1,2 +1,26 @@
+# OS
 .DS_Store
+Thumbs.db
 *.log
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Git (CRITICAL — must not upload git history)
+.git/
+.gitignore
+
+# Wrangler cache
+.wrangler/
+.dev.vars
+
+# Secrets (never upload)
+.env
+.env.local
+*.key
+*.pem
+
+# Node (in case we add it later)
+node_modules/

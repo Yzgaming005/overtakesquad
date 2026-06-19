@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects
+# Disable SPA fallback for non-existent paths
+
+# Custom 404 for missing pages
+/*  /404.html  404
