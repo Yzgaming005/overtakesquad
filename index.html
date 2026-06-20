@@ -763,6 +763,113 @@
     opacity: 1;
     transform: translateY(0);
   }
+  /* === MUSIC PLAYER === */
+  .music-player {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(7, 7, 7, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 107, 26, 0.3);
+    border-radius: 100px;
+    padding: 8px 16px 8px 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .music-player.hidden {
+    transform: translateY(80px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .music-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+  }
+
+  .music-toggle:hover {
+    transform: scale(1.08);
+  }
+
+  .music-toggle svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  .music-toggle .pause-icon {
+    display: none;
+  }
+
+  .music-player.playing .music-toggle .play-icon {
+    display: none;
+  }
+
+  .music-player.playing .music-toggle .pause-icon {
+    display: block;
+  }
+
+  .music-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 80px;
+  }
+
+  .music-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .music-bars {
+    display: flex;
+    gap: 2px;
+    align-items: flex-end;
+    height: 10px;
+  }
+
+  .music-bars span {
+    display: block;
+    width: 2px;
+    background: var(--orange);
+    border-radius: 1px;
+    height: 4px;
+    transition: height 0.2s ease;
+  }
+
+  .music-player.playing .music-bars span:nth-child(1) { animation: bar1 0.8s ease-in-out infinite; }
+  .music-player.playing .music-bars span:nth-child(2) { animation: bar2 0.6s ease-in-out infinite; }
+  .music-player.playing .music-bars span:nth-child(3) { animation: bar3 0.7s ease-in-out infinite; }
+  .music-player.playing .music-bars span:nth-child(4) { animation: bar4 0.5s ease-in-out infinite; }
+
+  @keyframes bar1 { 0%, 100% { height: 4px; } 50% { height: 10px; } }
+  @keyframes bar2 { 0%, 100% { height: 6px; } 50% { height: 12px; } }
+  @keyframes bar3 { 0%, 100% { height: 3px; } 50% { height: 9px; } }
+  @keyframes bar4 { 0%, 100% { height: 5px; } 50% { height: 11px; } }
+
+  @media (max-width: 600px) {
+    .music-player { bottom: 16px; right: 16px; padding: 6px 12px 6px 6px; }
+    .music-info { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -1044,6 +1151,19 @@
   <p class="slogan">Lead The Pace · Break The Limit</p>
 </footer>
 
+<!-- MUSIC PLAYER -->
+<div id="music-player" class="music-player">
+  <button id="music-toggle" class="music-toggle" aria-label="Play music">
+    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+  </button>
+  <div class="music-info">
+    <span class="music-title">OTS Theme</span>
+    <div class="music-bars"><span></span><span></span><span></span><span></span></div>
+  </div>
+  <audio id="bgm" src="ots-theme.mp3" loop preload="auto"></audio>
+</div>
+
 <script>
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
@@ -1056,6 +1176,46 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // === MUSIC PLAYER ===
+  (() => {
+    const player = document.getElementById('music-player');
+    const toggle = document.getElementById('music-toggle');
+    const audio = document.getElementById('bgm');
+    audio.volume = 0.2;
+
+    const play = () => {
+      audio.play().then(() => {
+        player.classList.add('playing');
+        toggle.setAttribute('aria-label', 'Pause music');
+      }).catch(() => { /* autoplay blocked, user must click */ });
+    };
+
+    const pause = () => {
+      audio.pause();
+      player.classList.remove('playing');
+      toggle.setAttribute('aria-label', 'Play music');
+    };
+
+    toggle.addEventListener('click', () => {
+      if (audio.paused) play(); else pause();
+    });
+
+    // Try autoplay (will be blocked on most browsers, but worth a shot)
+    play();
+
+    // Hide on scroll down, show on scroll up
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y > lastScroll && y > 100) {
+        player.classList.add('hidden');
+      } else {
+        player.classList.remove('hidden');
+      }
+      lastScroll = y;
+    }, { passive: true });
+  })();
 </script>
 </body>
 </html>
