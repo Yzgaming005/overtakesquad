@@ -1183,12 +1183,13 @@
     const toggle = document.getElementById('music-toggle');
     const audio = document.getElementById('bgm');
     audio.volume = 0.2;
+    audio.muted = true; // start muted so browser allows autoplay
 
     const play = () => {
       audio.play().then(() => {
         player.classList.add('playing');
         toggle.setAttribute('aria-label', 'Pause music');
-      }).catch(() => { /* autoplay blocked, user must click */ });
+      }).catch(() => { /* fallback handled below */ });
     };
 
     const pause = () => {
@@ -1201,8 +1202,19 @@
       if (audio.paused) play(); else pause();
     });
 
-    // Try autoplay (will be blocked on most browsers, but worth a shot)
+    // Attempt autoplay (muted = allowed on most browsers)
     play();
+
+    // Unmute on first user interaction (any click/scroll/keypress/touch)
+    const unmute = () => {
+      audio.muted = false;
+      ['click', 'keydown', 'scroll', 'touchstart'].forEach(e => {
+        document.removeEventListener(e, unmute);
+      });
+    };
+    ['click', 'keydown', 'scroll', 'touchstart'].forEach(e => {
+      document.addEventListener(e, unmute, { once: true, passive: true });
+    });
 
     // Hide on scroll down, show on scroll up
     let lastScroll = 0;
